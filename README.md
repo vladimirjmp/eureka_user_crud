@@ -16,12 +16,14 @@ Defina el modelo de datos y codifique, usando Java (Spring framework), los servi
 </ol>
 
 ## Ejecución del proyecto
+Primero debe hacer una copia del archivo `.env.example` y renombarlo como `.env`, editar las variables a su gusto.
+
 Para ejecutar el proyecto debe tener instalado docker en su equipo, tanto el Frontend como el Backend se encuentran en este repositorio, solo se debe ejecutar el siguiente comando:
 
 ```bash
 $ make up
 ```
 
-El url para el backend es: `http://localhost:8000`
+- El url para el backend es: `http://localhost:8000`
 
-El url para el frontend es: `http://localhost:4200`
+- El url para el frontend es: `http://localhost:4200`

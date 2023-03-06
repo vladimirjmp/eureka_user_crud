@@ -20,6 +20,18 @@ up: ## Run all services
 down: ## Stop an delete all containers
 	docker compose down --remove-orphans
 
+back-shell: ## Backend bash shell
+	docker compose exec -it backend bash
+
+back-logs: ## Backend logs
+	docker compose logs --tail 100 -f backend
+
+front-shell: ## Frontend bash shell
+	docker compose exec -it backend bash
+
+front-logs: ## Frontend logs
+	docker compose logs --tail 100 -f frontend
+
 dev-setup: ## Dev: Setup development environment with pre-commit hooks
 	@pip install  -Ur backend/requirements/development.txt
 	@pre-commit install -t pre-commit -t commit-msg --overwrite

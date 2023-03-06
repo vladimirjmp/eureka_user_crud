@@ -28,5 +28,21 @@ services:
     depends_on:
       - postgres
 
+  frontend:
+    build:
+      context: .
+      dockerfile: .dockerfiles/Dockerfile.front
+      args:
+        - env=development
+    volumes:
+      - ./frontend:/portal
+      - /portal/node_modules
+      - ${HOME}/.ssh:/home/node/.ssh:ro
+    ports:
+      - 4200:4200
+      - 49163:49153
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
 volumes:
   postgres_data:

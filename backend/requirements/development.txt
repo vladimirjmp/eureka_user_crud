@@ -1,0 +1,16 @@
+-r common.txt
+django-extensions
+ipython
+pdbpp
+pytest==6.2.5
+pytest-django
+pytest-bdd
+pytest-env
+mixer
+django-debug-toolbar
+pytest-cov
+pytest-pythonpath
+flake8
+isort==4.3.21
+pre-commit
+mypy

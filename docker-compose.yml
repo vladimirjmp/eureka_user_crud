@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 54321:5432
+
+  backend:
+    build:
+      context: .
+      dockerfile: .dockerfiles/Dockerfile.back
+    environment:
+      - DATABASE=postgres
+      - PIP_DEFAULT_TIMEOUT=100
+    env_file:
+      - ./.env
+    volumes:
+      - ./backend:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
